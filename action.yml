@@ -15,8 +15,14 @@ inputs:
     default: 'Scheduled downtime for deployment'
   scope:
     required: false
-    description: 'The scope of the downtime, can be a list of comma separated values e.g. "env:prod,app:my-app"'
-    default: '*'
+    description: 'The downtimes scope should be represented as a JSON.stringify array of strings, using key:value format for the scope(s) to which it applies. For instance, you may use ["*"] or ["env:prod,env:staging", "host:myhost.example.com"]'
+    default: '["*"]'
+  monitor-tags:
+    required: false
+    description: 'The monitor tags to include in the downtime. Should be a JSON.stringify array of strings ["env:prod,env:staging", "host:myhost.example.com"]'
+  monitor-id:
+    required: false
+    description: 'A single monitor to which the downtime applies. If not provided, the downtime applies to all monitors.'
   site:
     required: false
     description: 'The site to create the downtime for e.g. datadoghq.eu'

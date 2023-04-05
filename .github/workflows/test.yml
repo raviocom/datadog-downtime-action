@@ -28,6 +28,7 @@ jobs:
           downtime-minutes: 5
           message: 'Scheduled downtime for deployment from GitHub Actions'
           scope: '*'
+          monitor-id: 10681418
           site: 'datadoghq.eu'
           api-key: ${{ secrets.DATADOG_API_KEY }}
           app-key: ${{ secrets.DATADOG_APP_KEY }}
