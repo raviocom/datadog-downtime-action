@@ -32,3 +32,12 @@ jobs:
           site: 'datadoghq.eu'
           api-key: ${{ secrets.DATADOG_API_KEY }}
           app-key: ${{ secrets.DATADOG_APP_KEY }}
+      - uses: ./
+        with:
+          downtime-minutes: 5
+          message: 'Scheduled downtime for deployment from GitHub Actions'
+          scope: '*'
+          monitor-tags: '["env:prod"]'
+          site: 'datadoghq.eu'
+          api-key: ${{ secrets.DATADOG_API_KEY }}
+          app-key: ${{ secrets.DATADOG_APP_KEY }}
