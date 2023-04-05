@@ -19,10 +19,10 @@ inputs:
     description: 'The site to create the downtime for e.g. datadoghq.eu'
     default: 'datadoghq.com'
   api-key:
-    required: true
+    required: false
     description: 'The Datadog API key'
   app-key:
-    required: true
+    required: false
     description: 'The Datadog APP key'
 runs:
   using: 'node16'
