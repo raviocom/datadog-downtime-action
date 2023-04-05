@@ -24,6 +24,8 @@ Create a downtime for 5 minutes that will affect all monitors in your Datadog ac
 
 Create a downtime for 5 minutes that will affect only the monitor with the ID `123456`.
 
+For more information about scopes, see the [Datadog downtime documentation](https://docs.datadoghq.com/monitors/notify/downtimes/?tab=bymonitorname#downtime-scope).
+
 ```yaml
 - uses: brookke/datadog-downtime-action@v1
   downtime-minutes: 5
@@ -33,9 +35,26 @@ Create a downtime for 5 minutes that will affect only the monitor with the ID `1
     app-key: ${{ secrets.DATADOG_APP_KEY }}
 ```
 
-### Specific scope
+### Specific monitor tag(s)
 
-Create a downtime for 5 minutes that will affect only the monitors with the scope `env:prod`.
+Create a downtime for 5 minutes that will affect only the monitor with the tag `env:prod`.
+
+For more information about monitor tags, see the [Datadog downtime documentation](https://docs.datadoghq.com/monitors/notify/downtimes/?tab=bymonitortags#choose-what-to-silence).
+
+```yaml
+- uses: brookke/datadog-downtime-action@v1
+  downtime-minutes: 5
+  with:
+    monitor-tags: '["ignore-during-deploy"]'
+    api-key: ${{ secrets.DATADOG_API_KEY }}
+    app-key: ${{ secrets.DATADOG_APP_KEY }}
+```
+
+### Specific scope(s)
+
+Create a downtime for 5 minutes that will affect only sources with the scope `env:prod`.
+
+For more information about scopes, see the [Datadog downtime documentation](https://docs.datadoghq.com/monitors/notify/downtimes/?tab=bymonitorname#downtime-scope).
 
 ```yaml
 - uses: brookke/datadog-downtime-action@v1
@@ -48,13 +67,15 @@ Create a downtime for 5 minutes that will affect only the monitors with the scop
 
 ### Specific message
 
-Create a downtime for 5 minutes that will affect all monitors in your Datadog account and will have the message `Maintenance window`.
+Create a downtime for 5 minutes that will affect all monitors in your Datadog account and will have the message `Maintenance window - @username` which will notify the user `username` via Datadog.
+
+Notifications can be sent to specific users by using the `@username` notation, see the [Datadog downtime API documentation](https://docs.datadoghq.com/api/latest/downtimes/?code-lang=typescript#schedule-a-downtime) for more information.
 
 ```yaml
 - uses: brookke/datadog-downtime-action@v1
   downtime-minutes: 5
   with:
-    message: 'Maintenance window'
+    message: 'Maintenance window - @username'
     api-key: ${{ secrets.DATADOG_API_KEY }}
     app-key: ${{ secrets.DATADOG_APP_KEY }}
 ```
