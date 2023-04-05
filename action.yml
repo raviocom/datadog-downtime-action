@@ -1,5 +1,5 @@
 name: 'Datadog Downtime'
-description: 'This action allows you to create a downtime in Datadog. This is useful for example when you want to schedule a maintenance window for your application during a deployment.'
+description: 'This action allows you to create a downtime in Datadog.'
 author: 'Brooke Hatton'
 inputs:
   downtime-minutes:
