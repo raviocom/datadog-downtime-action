@@ -1,11 +1,29 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Datadog Downtime'
+description: 'Create a downtime in Datadog'
+author: 'Brooke Hatton'
 inputs:
-  milliseconds: # change this
+  downtime-minutes:
+    required: false
+    description: 'The number of minutes to set the downtime for'
+    default: '5'
+  message:
+    required: false
+    description: 'The message to include in the downtime'
+    default: 'Scheduled downtime for deployment'
+  scope:
+    required: false
+    description: 'The scope of the downtime, can be a list of comma separated values e.g. "env:prod,app:my-app"'
+    default: '*'
+  site:
+    required: false
+    description: 'The site to create the downtime for e.g. datadoghq.eu'
+    default: 'datadoghq.com'
+  api-key:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'The Datadog API key'
+  app-key:
+    required: true
+    description: 'The Datadog APP key'
 runs:
   using: 'node16'
   main: 'dist/index.js'
