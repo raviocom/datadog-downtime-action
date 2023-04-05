@@ -1,5 +1,8 @@
 name: 'Datadog Downtime'
 description: 'This action allows you to create a downtime in Datadog.'
+branding:
+  icon: 'clock'
+  color: 'purple'
 author: 'Brooke Hatton'
 inputs:
   downtime-minutes:
