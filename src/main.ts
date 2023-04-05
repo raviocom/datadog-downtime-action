@@ -1,16 +1,23 @@
 import * as core from '@actions/core'
-import {wait} from './wait'
+import {DatadogAPI} from './datadog'
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+    const message: string = core.getInput('message')
+    const downtimeMinutes: number = parseInt(core.getInput('downtime-minutes'))
+    const scope: string[] = core.getInput('scope').split(',')
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
+    const api = new DatadogAPI(
+      {
+        apiKeyAuth: core.getInput('api-key'),
+        appKeyAuth: core.getInput('app-key')
+      },
+      core.getInput('site')
+    )
 
-    core.setOutput('time', new Date().toTimeString())
+    core.info(`Creating downtime for ${downtimeMinutes} minutes`)
+    await api.createDowntime(message, downtimeMinutes, scope)
+    core.info('Downtime created')
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
