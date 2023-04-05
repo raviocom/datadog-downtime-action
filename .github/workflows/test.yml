@@ -26,3 +26,4 @@ jobs:
           scope: '*'
           site: 'datadoghq.eu'
           api-key: ${{ secrets.DATADOG_API_KEY }}
+          app-key: ${{ secrets.DATADOG_APP_KEY }}
