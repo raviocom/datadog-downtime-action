@@ -17,7 +17,7 @@ The application key needs the `monitors_downtime` permission.
 Create a downtime for 5 minutes that will affect all monitors in your Datadog account.
 
 ```yaml
-- uses: brookke/datadog-downtime-action@v1
+- uses: raviocom/datadog-downtime-action@v1
   with:
     downtime-minutes: 5
     api-key: ${{ secrets.DATADOG_API_KEY }}
@@ -31,7 +31,7 @@ Create a downtime for 5 minutes that will affect only the monitor with the ID `1
 The monitor ID can be found in the URL of the monitor in Datadog, for example `https://app.datadoghq.com/monitors/123456`.
 
 ```yaml
-- uses: brookke/datadog-downtime-action@v1
+- uses: raviocom/datadog-downtime-action@v1
   with:
     downtime-minutes: 5
     monitor-id: 123456
@@ -46,7 +46,7 @@ Create a downtime for 5 minutes that will affect only the monitors with the tag 
 For more information about monitor tags, see the [Datadog downtime documentation](https://docs.datadoghq.com/monitors/notify/downtimes/?tab=bymonitortags#choose-what-to-silence).
 
 ```yaml
-- uses: brookke/datadog-downtime-action@v1
+- uses: raviocom/datadog-downtime-action@v1
   with:
     downtime-minutes: 5
     monitor-tags: '["ignore-during-deploy"]'
@@ -66,7 +66,7 @@ Create a downtime for 5 minutes that will affect only sources with the scope `en
 For more information about scopes, see the [Datadog downtime documentation](https://docs.datadoghq.com/monitors/notify/downtimes/?tab=bymonitorname#downtime-scope).
 
 ```yaml
-- uses: brookke/datadog-downtime-action@v1
+- uses: raviocom/datadog-downtime-action@v1
   with:
     downtime-minutes: 5
     scope: '["env:prod"]'
@@ -81,7 +81,7 @@ Create a downtime for 5 minutes that will affect all monitors in your Datadog ac
 Notifications can be sent to specific users by using the `@username` notation, see the [Datadog downtime API documentation](https://docs.datadoghq.com/api/latest/downtimes/?code-lang=typescript#schedule-a-downtime) for more information.
 
 ```yaml
-- uses: brookke/datadog-downtime-action@v1
+- uses: raviocom/datadog-downtime-action@v1
   with:
     downtime-minutes: 5
     message: 'Maintenance window - @username'
