@@ -1,7 +1,3 @@
-<p align="center">
-  <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-</p>
-
 # Datadog downtime action
 
 This action allows you to create a downtime in Datadog. This is useful for example when you want to schedule a maintenance window for your application during a deployment.
@@ -22,8 +18,8 @@ Create a downtime for 5 minutes that will affect all monitors in your Datadog ac
 
 ```yaml
 - uses: brookke/datadog-downtime-action@v1
-  downtime-minutes: 5
   with:
+    downtime-minutes: 5
     api-key: ${{ secrets.DATADOG_API_KEY }}
     app-key: ${{ secrets.DATADOG_APP_KEY }}
 ```
@@ -36,8 +32,8 @@ The monitor ID can be found in the URL of the monitor in Datadog, for example `h
 
 ```yaml
 - uses: brookke/datadog-downtime-action@v1
-  downtime-minutes: 5
   with:
+    downtime-minutes: 5
     monitor-id: 123456
     api-key: ${{ secrets.DATADOG_API_KEY }}
     app-key: ${{ secrets.DATADOG_APP_KEY }}
@@ -51,8 +47,8 @@ For more information about monitor tags, see the [Datadog downtime documentation
 
 ```yaml
 - uses: brookke/datadog-downtime-action@v1
-  downtime-minutes: 5
   with:
+    downtime-minutes: 5
     monitor-tags: '["ignore-during-deploy"]'
     api-key: ${{ secrets.DATADOG_API_KEY }}
     app-key: ${{ secrets.DATADOG_APP_KEY }}
@@ -71,8 +67,8 @@ For more information about scopes, see the [Datadog downtime documentation](http
 
 ```yaml
 - uses: brookke/datadog-downtime-action@v1
-  downtime-minutes: 5
   with:
+    downtime-minutes: 5
     scope: '["env:prod"]'
     api-key: ${{ secrets.DATADOG_API_KEY }}
     app-key: ${{ secrets.DATADOG_APP_KEY }}
@@ -86,8 +82,8 @@ Notifications can be sent to specific users by using the `@username` notation, s
 
 ```yaml
 - uses: brookke/datadog-downtime-action@v1
-  downtime-minutes: 5
   with:
+    downtime-minutes: 5
     message: 'Maintenance window - @username'
     api-key: ${{ secrets.DATADOG_API_KEY }}
     app-key: ${{ secrets.DATADOG_APP_KEY }}
