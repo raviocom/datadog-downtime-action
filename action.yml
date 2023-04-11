@@ -1,4 +1,4 @@
-name: 'Datadog Downtime'
+name: 'Datadog Downtime Action'
 description: 'This action allows you to create a downtime in Datadog.'
 branding:
   icon: 'clock'
