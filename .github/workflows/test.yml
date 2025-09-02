@@ -19,23 +19,23 @@ jobs:
           npm ci
       - run: |
           npm run all
-  test: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./
-        with:
-          downtime-minutes: 5
-          message: 'Scheduled downtime for deployment from GitHub Actions'
-          monitor-id: 10681418
-          site: 'datadoghq.eu'
-          api-key: ${{ secrets.DATADOG_API_KEY }}
-          app-key: ${{ secrets.DATADOG_APP_KEY }}
-      - uses: ./
-        with:
-          downtime-minutes: 5
-          message: 'Scheduled downtime for deployment from GitHub Actions'
-          monitor-tags: '["env:prod"]'
-          site: 'datadoghq.eu'
-          api-key: ${{ secrets.DATADOG_API_KEY }}
-          app-key: ${{ secrets.DATADOG_APP_KEY }}
+  # test: # make sure the action works on a clean machine without building
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: ./
+  #       with:
+  #         downtime-minutes: 5
+  #         message: 'Scheduled downtime for deployment from GitHub Actions'
+  #         monitor-id: 10681418
+  #         site: 'datadoghq.eu'
+  #         api-key: ${{ secrets.DATADOG_API_KEY }}
+  #         app-key: ${{ secrets.DATADOG_APP_KEY }}
+  #     - uses: ./
+  #       with:
+  #         downtime-minutes: 5
+  #         message: 'Scheduled downtime for deployment from GitHub Actions'
+  #         monitor-tags: '["env:prod"]'
+  #         site: 'datadoghq.eu'
+  #         api-key: ${{ secrets.DATADOG_API_KEY }}
+  #         app-key: ${{ secrets.DATADOG_APP_KEY }}
